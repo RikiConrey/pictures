@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Narrative Circumplex</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .circumplex {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(240,248,255,0.9) 100%);
+        }
+        
+
+        
+        .segment {
+            position: absolute;
+            width: 200px;
+            height: 180px;
+            perspective: 1000px;
+        }
+        
+        .segment-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .segment:hover .segment-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .segment-front, .segment-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #3498db;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .segment-back {
+            transform: rotateY(180deg);
+            background: rgba(52, 152, 219, 0.1);
+            border-color: #2980b9;
+        }
+        
+        .segment-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .narrative-title {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .catalyst, .transformation, .resolution {
+            font-size: 11px;
+            margin: 4px 0;
+            line-height: 1.3;
+        }
+        
+        .catalyst { color: #f39c12; }
+        .transformation { color: #27ae60; }
+        .resolution { color: #8e44ad; }
+        
+        .data-point {
+            font-size: 10px;
+            margin: 3px 0;
+            line-height: 1.2;
+            color: #2c3e50;
+        }
+        
+        /* Positioning segments evenly around the circle - TC-DTM at bottom */
+        .tc-dtm { top: 650px; left: 300px; }
+        .dtm { top: 562px; left: 512px; }
+        .dtm-iyss { top: 350px; left: 600px; }
+        .iyss { top: 138px; left: 512px; }
+        .iyss-pp { top: 50px; left: 300px; }
+        .pp { top: 138px; left: 88px; }
+        .pp-tc { top: 350px; left: 0px; }
+        .tc { top: 562px; left: 88px; }
+        
+        .legend {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .legend-item {
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .legend-catalyst { background: rgba(243, 156, 18, 0.1); color: #f39c12; }
+        .legend-transformation { background: rgba(39, 174, 96, 0.1); color: #27ae60; }
+        .legend-resolution { background: rgba(142, 68, 173, 0.1); color: #8e44ad; }
+        .legend-title { background: rgba(231, 76, 60, 0.1); color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Climate Narrative Circumplex</h1>
+        
+        <div class="circumplex">
+            
+            <div class="segment tc">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">TC</div>
+                        <div class="narrative-title">RESTORATION</div>
+                        <div class="catalyst"><strong>Realize:</strong> We've lost our natural connection</div>
+                        <div class="transformation"><strong>Act:</strong> Return to collective wisdom</div>
+                        <div class="resolution"><strong>Feel:</strong> Harmonious with enduring cycles</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">TC - Data Evidence</div>
+                        <div class="data-point">Nature untouched by humans</div>
+                        <div class="data-point">Solutions via group action</div>
+                        <div class="data-point">Live off-grid independently</div>
+                        <div class="data-point">Enjoy spending time in nature</div>
+                        <div class="data-point">Preserve for future generations</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment tc-dtm">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">TC-DTM</div>
+                        <div class="narrative-title">PRESERVATION</div>
+                        <div class="catalyst"><strong>Realize:</strong> Traditional ways work</div>
+                        <div class="transformation"><strong>Act:</strong> Stay flexible and adapt smartly</div>
+                        <div class="resolution"><strong>Feel:</strong> Connected to reliable systems</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">TC-DTM - Data Evidence</div>
+                        <div class="data-point">Return to traditional ways</div>
+                        <div class="data-point">Stay safe through flexibility</div>
+                        <div class="data-point">Live off-grid independently</div>
+                        <div class="data-point">Solutions via tech & creativity</div>
+                        <div class="data-point">Solutions via group action</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment dtm">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">DTM</div>
+                        <div class="narrative-title">MASTERY</div>
+                        <div class="catalyst"><strong>Realize:</strong> Individual capability matters most</div>
+                        <div class="transformation"><strong>Act:</strong> Stay alert and personally flexible</div>
+                        <div class="resolution"><strong>Feel:</strong> Nature is manageable, not sacred</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">DTM - Data Evidence</div>
+                        <div class="data-point">Address via individual action</div>
+                        <div class="data-point">Stay safe through flexibility</div>
+                        <div class="data-point">Nature untouched by humans</div>
+                        <div class="data-point">Enjoy spending time in nature</div>
+                        <div class="data-point">Preserve for future generations</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment dtm-iyss">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">DTM-IYSS</div>
+                        <div class="narrative-title">INDEPENDENCE</div>
+                        <div class="catalyst"><strong>Realize:</strong> Personal security requires self-reliance</div>
+                        <div class="transformation"><strong>Act:</strong> Build off-grid capabilities</div>
+                        <div class="resolution"><strong>Feel:</strong> Safe through independence</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">DTM-IYSS - Data Evidence</div>
+                        <div class="data-point">Live off-grid independently</div>
+                        <div class="data-point">Stay safe through flexibility</div>
+                        <div class="data-point">Nature untouched by humans</div>
+                        <div class="data-point">Address via individual action</div>
+                        <div class="data-point">Enjoy spending time in nature</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment iyss">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">IYSS</div>
+                        <div class="narrative-title">EMERGENCE</div>
+                        <div class="catalyst"><strong>Realize:</strong> Innovation needs collective effort</div>
+                        <div class="transformation"><strong>Act:</strong> Prepare individually while working together</div>
+                        <div class="resolution"><strong>Feel:</strong> Ready for emerging possibilities</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">IYSS - Data Evidence</div>
+                        <div class="data-point">We must find new ways</div>
+                        <div class="data-point">Solutions via group action</div>
+                        <div class="data-point">Stay safe through flexibility</div>
+                        <div class="data-point">Preserve for future generations</div>
+                        <div class="data-point">Prepare for disasters at home</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment iyss-pp">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">IYSS-PP</div>
+                        <div class="narrative-title">ABUNDANCE</div>
+                        <div class="catalyst"><strong>Realize:</strong> Technology can solve everything</div>
+                        <div class="transformation"><strong>Act:</strong> Innovate while keeping nature pristine</div>
+                        <div class="resolution"><strong>Feel:</strong> Abundant future guaranteed</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">IYSS-PP - Data Evidence</div>
+                        <div class="data-point">Solutions via tech & creativity</div>
+                        <div class="data-point">Nature untouched by humans</div>
+                        <div class="data-point">Preserve for future generations</div>
+                        <div class="data-point">We must find new ways</div>
+                        <div class="data-point">Live off-grid independently</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment pp">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">PP</div>
+                        <div class="narrative-title">TRANSFORMATION</div>
+                        <div class="catalyst"><strong>Realize:</strong> Human creativity is limitless</div>
+                        <div class="transformation"><strong>Act:</strong> Coordinate collective action</div>
+                        <div class="resolution"><strong>Feel:</strong> Cared for by community</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">PP - Data Evidence</div>
+                        <div class="data-point">We must find new ways</div>
+                        <div class="data-point">Solutions via group action</div>
+                        <div class="data-point">Stay safe via community care</div>
+                        <div class="data-point">Preserve for future generations</div>
+                        <div class="data-point">Enjoy spending time in nature</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="segment pp-tc">
+                <div class="segment-inner">
+                    <div class="segment-front">
+                        <div class="segment-name">PP-TC</div>
+                        <div class="narrative-title">INTEGRATION</div>
+                        <div class="catalyst"><strong>Realize:</strong> Balance creates resilience</div>
+                        <div class="transformation"><strong>Act:</strong> Blend group action with preparation</div>
+                        <div class="resolution"><strong>Feel:</strong> Secure in lasting relationships</div>
+                    </div>
+                    <div class="segment-back">
+                        <div class="segment-name">PP-TC - Data Evidence</div>
+                        <div class="data-point">We must find new ways</div>
+                        <div class="data-point">Solutions via group action</div>
+                        <div class="data-point">Stay safe via community care</div>
+                        <div class="data-point">Preserve for future generations</div>
+                        <div class="data-point">Prepare for disasters at home</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item legend-title"><strong>Narrative</strong><br>Core worldview</div>
+            <div class="legend-item legend-catalyst"><strong>Catalyst</strong><br>What they realize</div>
+            <div class="legend-item legend-transformation"><strong>Transformation</strong><br>How they act</div>
+            <div class="legend-item legend-resolution"><strong>Resolution</strong><br>Their vision of success</div>
+        </div>
+    </div>
+</body>
+</html>
